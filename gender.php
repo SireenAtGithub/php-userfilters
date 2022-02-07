@@ -11,16 +11,6 @@
     $total_rows = $row[0];
     $total_pages = ceil($total_rows / $limit);
     $query_str = "SELECT * FROM user_detail WHERE gender ='$gender' LIMIT $initial_page, $limit ";
-
-    // if($gender != null){
-    //     $query = "SELECT * FROM user_detail WHERE gender ='$gender' LIMIT $initial_page, $limit ";
-    //     $page_query = "SELECT COUNT(*) FROM user_detail WHERE gender ='$gender'"; 
-    // }else{    
-    //     $start_date = $_REQUEST['start_date'];
-    //     $end_date = $_REQUEST['end_date'];
-    //     $query = "SELECT * FROM user_detail WHERE dob BETWEEN '$start_date' AND '$end_date'";
-    //     $query = "SELECT COUNT(*) FROM user_detail WHERE dob BETWEEN '$start_date' AND '$end_date'";
-    // }
     
     $data_array = array();
     $return_arr = array();
