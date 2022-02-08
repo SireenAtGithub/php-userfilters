@@ -12,7 +12,7 @@
     $total_rows = $row[0];
     $total_pages = ceil($total_rows / $limit);
     $query_str = "SELECT * FROM user_detail WHERE dob BETWEEN '$start_date' AND '$end_date' LIMIT $initial_page, $limit ";
-     
+    
     $data_array = array();
     $return_arr = array();
     
