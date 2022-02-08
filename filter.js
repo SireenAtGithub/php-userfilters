@@ -61,9 +61,25 @@ function loadAllData(page){
 $(document).ready(function(){
     loadAllData(1);
     $("#from_date").val('');
+    $("#user_name").val('');
     $("#to_date").val('');
     $('body').on('click', '.page-link', function(){
         var id = $(this).attr("data-id");
+
+        if($("#user_name").val() != ""){
+            $value = $("#user_name").val();
+            $.ajax({
+                url:'name_filter.php',
+                type: 'get',
+                dataType: 'JSON',
+                data: jQuery.param({str: $value, page: id }),
+                success: function(response) {
+                    fillTable(response);
+                    $(".page-item").removeClass("active");
+                    $("#li"+id).parent().attr("class", "page-item active");
+                }
+            });
+        }
         if($('#female').is(':checked') || $('#male').is(':checked')) { 
             $value = $('input[name="gender"]:checked').val();
             $.ajax({
@@ -93,7 +109,7 @@ $(document).ready(function(){
                 }
             });
         }
-        if($("#to_date").val() == "" && $('#female').is(":not(:checked)") && $('#male').is(":not(:checked)")){
+        if($("#to_date").val() == "" && $('#female').is(":not(:checked)") && $('#male').is(":not(:checked)") && $("#user_name").val() == ""){
             $.ajax({
                 url: "select_all.php",
                 type: "get",
@@ -106,6 +122,19 @@ $(document).ready(function(){
                 }
             });
         }
+    });
+
+    $("#user_name").on('input',function() {
+        $str = this.value;
+        $.ajax({
+            url:'name_filter.php',
+            type: 'GET',
+            dataType: 'JSON',
+            data: jQuery.param({str: $str, page: 1}),
+            success: function(response){
+                fillTable(response);
+            }
+        })
     });
 
     $('input[type=radio][name=gender]').change(function() {
@@ -152,5 +181,6 @@ $(document).ready(function(){
         $( "#male" ).prop( "checked", false );
         $("#from_date").val('');
         $("#to_date").val('');
+        $("#user_name").val('');
     });
 });
