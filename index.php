@@ -4,10 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<script src="jquery-1.9.1.js"></script>
-	<script src="jquery-ui.js"></script>
+	<script src="js/jquery-1.9.1.js" ty></script>
+	<script src="js/jquery-ui.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<script src="filter.js"></script>
+	<script src="js/filter.js"></script>
+	
+	<script src="js/pagination.js"></script>
 </head>
 <body>
 	
@@ -55,7 +57,7 @@
 		</ul>
 	  </nav>
 	</div>
-	<input type="hidden" name="total_pages" id="total_pages">
+	<input type="hidden" name="filter" id="filter">
 </body>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
