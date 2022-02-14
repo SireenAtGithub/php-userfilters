@@ -78,7 +78,7 @@ $(document).ready(function(){
         }else{
             $("#filter").val('name-filter');
         }
-        sendJSONRequest("select_all.php",{ str: $str, page: 1 });
+        sendJSONRequest("name_filter.php",{ str: $str, page: 1 });
     });
 
     $('input[type=radio][name=gender]').change(function() {
