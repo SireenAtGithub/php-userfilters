@@ -53,7 +53,19 @@
 	      	<tbody></tbody>
 	   </table>
 	   <nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-end" id="pagination">
+		<ul class="pagination justify-content-end" id="parent-pagination">
+			<!-- <li class="page-item left-item-class">
+				<a class="page-link " href="#" aria-label="Previous" id="left-click">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li> -->
+			<ol class="user-pages pagination justify-content-end" id="pagination">
+			</ol>
+			<!-- <li class="page-item">
+				<a class="page-link" href="#" aria-label="Next" id="right-click">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li> -->
 		</ul>
 	  </nav>
 	</div>
