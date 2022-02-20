@@ -1,21 +1,21 @@
 $(document).ready(function(){
-    $('body').on('click', '.page-link', function(){
+    $('body').on('click', '.page-num', function(){
         var id = $(this).attr("data-id");
         var filter = $("#filter").val();
         filterFunction(filter, id);
     });
 
-    // $("#left-click").click(function() {
-    //     var id = $("#pagination li.active").index();
-    //     var filter = $("#filter").val();
-    //     filterFunction(filter, id); 
-    // });
+    $("#left-click").click(function() {
+        var id = $("#pagination li.active").index();
+        var filter = $("#filter").val();
+        filterFunction(filter, id); 
+    });
 
-    // $("#right-click").click(function() {
-    //     var id = $("#pagination li.active").index();
-    //     var filter = $("#filter").val();
-    //     filterFunction(filter, id);
-    // });
+    $("#right-click").click(function() {
+        var id = $("#pagination li.active").index();
+        var filter = $("#filter").val();
+        filterFunction(filter, id+2);
+    });
 });
 
 function filterFunction(filter, id){
@@ -38,19 +38,4 @@ function filterFunction(filter, id){
     if(filter == "no-filter"){
         sendJSONRequest("select_all.php",{page: id});
     }
-}
-
-function sendJSONRequest(file_name, dictionary){
-    var id = dictionary['page'];
-    $.ajax({
-        url: file_name,
-        type: "get",
-        data: jQuery.param(dictionary),
-        dataType: 'JSON',
-        success: function(response) {
-            fillTable(response);
-            $(".page-item").removeClass("active");
-            $("#li"+id).parent().attr("class", "page-item active");
-        }
-    });
 }

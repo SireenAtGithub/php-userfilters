@@ -26,8 +26,26 @@ function sendJSONRequest(file_name, dictionary){
             fillTable(response);
             $(".page-item").removeClass("active");
             $("#li"+id).parent().attr("class", "page-item active");
+            enableDisableArrow(response);
         }
     });
+}
+
+function enableDisableArrow(response){
+    var a_id = $("#pagination li.active").index();
+    var total_pages = response[1]["total_pages"];
+    
+    if (a_id == 0) {
+        $("#left-click").css("pointer-events", "none");
+    }else{
+        $("#left-click").css("pointer-events", "auto");
+    }
+
+    if((a_id + 1) == total_pages){
+        $("#right-click").css("pointer-events", "none");
+    }else{
+        $("#right-click").css("pointer-events", "auto");
+    }
 }
 
 function fillTable(response){
@@ -52,9 +70,9 @@ function fillTable(response){
     }
     for (var i = 1; i <= total_pages; i++) {
         if (i == 1) {
-            var li_str = "<li class='page-item active'><a href='JavaScript:Void(0);' class='page-link' data-id='" + i + "' id=li" + i + ">" + i + "</a></li>";
+            var li_str = "<li class='page-item active'><a href='JavaScript:Void(0);' class='page-link page-num' data-id='" + i + "' id=li" + i + ">" + i + "</a></li>";
         }else{
-            var li_str = "<li class='page-item'><a href='JavaScript:Void(0);' class='page-link' data-id='" + i + "' id=li" + i + ">" + i + "</a></li>";
+            var li_str = "<li class='page-item'><a href='JavaScript:Void(0);' class='page-link page-num' data-id='" + i + "' id=li" + i + ">" + i + "</a></li>";
         }
         $("#pagination").append(li_str);
     }
