@@ -79,7 +79,7 @@ function fillTable(response){
 }
 
 function loadAllData(page){
-    sendJSONRequest("select_all.php",{page: page });
+    sendJSONRequest("select_all.php",{page: page, entries: 5 });
 }
 
 $(document).ready(function(){

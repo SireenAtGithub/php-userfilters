@@ -18,7 +18,13 @@ $(document).ready(function(){
     });
 });
 
-function filterFunction(filter, id){
+function showEntries(limit_value){
+    var id = $(this).attr("data-id");
+    var filter = $("#filter").val();
+    filterFunction(filter, id, limit_value);
+}
+
+function filterFunction(filter, id, limit_value){
     if(filter == "name-filter"){
         var value = $("#user_name").val();
         sendJSONRequest("name_filter.php", {str: value, page: id});
@@ -36,6 +42,6 @@ function filterFunction(filter, id){
     }
     
     if(filter == "no-filter"){
-        sendJSONRequest("select_all.php",{page: id});
+        sendJSONRequest("select_all.php",{page: id, entries: limit_value});
     }
 }

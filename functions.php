@@ -1,6 +1,6 @@
 <?php
     include "config.php";
-    $limit = 5;
+    $limit = $_REQUEST['entries'];
     function    get_total_pages($str_query){
         global  $con;
         global  $limit;
@@ -19,6 +19,7 @@
         $return_arr = array();
         global  $con;
         $final_query = $str_query . " LIMIT $initial_page, $limit";
+        echo $final_query;
         $result = mysqli_query($con,$final_query);
         while($row = mysqli_fetch_array($result)){
             $id = $row['id'];

@@ -2,7 +2,6 @@
     include "config.php";
     include "functions.php";
     $page = $_REQUEST['page'];
-
     $totalPageQuery = "SELECT COUNT(*) FROM user_detail";
     $total_pages = get_total_pages($totalPageQuery);
      

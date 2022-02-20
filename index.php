@@ -39,6 +39,16 @@
 		</div>
 	</div>
 
+	<div class="container pt-2">
+		Show
+		<select name="filter-select" onchange="showEntries(this.value)" id="filter-select">
+			<option value="5" selected>5</option>
+			<option value="10">10</option>
+			<option value="15">15</option>
+		</select>
+		entries
+	</div>
+
 	<div class="container pt-1">
 	   <table id="userTable" class="table table-striped caption-top">
 			<caption>List of users</caption>
