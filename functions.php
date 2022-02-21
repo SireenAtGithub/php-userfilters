@@ -19,7 +19,6 @@
         $return_arr = array();
         global  $con;
         $final_query = $str_query . " LIMIT $initial_page, $limit";
-        echo $final_query;
         $result = mysqli_query($con,$final_query);
         while($row = mysqli_fetch_array($result)){
             $id = $row['id'];

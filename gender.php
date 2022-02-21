@@ -3,7 +3,6 @@
     include "functions.php";
     $gender = $_REQUEST['gender'];
     $page = $_REQUEST['page'];
-    $limit = 5;
 
     $totalPageQuery = "SELECT COUNT(*) FROM user_detail WHERE gender ='$gender'";
     $total_pages = get_total_pages($totalPageQuery);

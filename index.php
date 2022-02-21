@@ -41,7 +41,7 @@
 
 	<div class="container pt-2">
 		Show
-		<select name="filter-select" onchange="showEntries(this.value)" id="filter-select">
+		<select name="filter-select" onchange="showEntries(this.value)" id="entry-select">
 			<option value="5" selected>5</option>
 			<option value="10">10</option>
 			<option value="15">15</option>

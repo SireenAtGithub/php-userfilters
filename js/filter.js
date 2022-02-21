@@ -88,7 +88,7 @@ $(document).ready(function(){
     $("#user_name").val('');
     $("#to_date").val('');
     $("#filter").val('no-filter');
-
+    var entries_page = $("#entry-select").val();
     $("#user_name").on('input',function() {
         $str = this.value;
         if($str == ""){
@@ -96,13 +96,13 @@ $(document).ready(function(){
         }else{
             $("#filter").val('name-filter');
         }
-        sendJSONRequest("name_filter.php",{ str: $str, page: 1 });
+        sendJSONRequest("name_filter.php",{ str: $str, page: 1, entries: entries_page });
     });
 
     $('input[type=radio][name=gender]').change(function() {
         var gender = this.value;
         $("#filter").val('gender-filter');
-        sendJSONRequest("gender.php",{ gender: gender, page: 1 });
+        sendJSONRequest("gender.php",{ gender: gender, page: 1, entries: entries_page  });
     });
     
     $('#from_date').change(function(){
@@ -115,7 +115,7 @@ $(document).ready(function(){
         let start_date = document.getElementById('from_date').value;
         let end_date = document.getElementById('to_date').value;
         $("#filter").val('date-filter');  
-        sendJSONRequest("date_filter.php",{ start_date: start_date, end_date: end_date, page: 1 });
+        sendJSONRequest("date_filter.php",{ start_date: start_date, end_date: end_date, page: 1, entries: entries_page  });
     });
 
     from_date.max = new Date().toISOString().split("T")[0];
